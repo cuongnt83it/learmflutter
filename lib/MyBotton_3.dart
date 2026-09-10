@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyBotton_2 extends StatelessWidget {
-  const MyBotton_2({super.key});
+class MyBotton_3 extends StatelessWidget {
+  const MyBotton_3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +33,9 @@ class MyBotton_2 extends StatelessWidget {
             // ElevateButton là một button nối với một hiệu ứng đổ bóng
             // thường được dùng cho các hành động chính trong ứng dụng
             ElevatedButton(
-              onPressed: () {
-                print("ElevateButton");
-              },
-              child: Text(
-                "ElevateButton"
-              ),
+              // Khóa nút nhấn
+              onPressed: null, //Khóa lại
+              child: Text("ElevateButton"),
               style: ElevatedButton.styleFrom(
                 //Màu nền
                 backgroundColor: Colors.green,
@@ -47,46 +44,37 @@ class MyBotton_2 extends StatelessWidget {
                 //Màu của đổ bóng
                 shadowColor: Colors.red,
 
-
                 //Định dạng khối hình chữ nhật
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
-
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 textStyle: TextStyle(fontSize: 30),
                 //Độ rộng của đổ bóng
                 elevation: 20,
-
               ),
-
-            ),
-            SizedBox(height: 30,),
-            // Inkwell không phải là button
-            // Nhưng cho phép tạo hiệu ứng gợn sóng(ripple effect)
-            //Khi được nhấn tab thì màu nền sẽ thay đổi
-            InkWell(
-              onTap: () {
-                print("InkWell");
-              },
-              child: Container(
-                height: 65,
-                width: 200,
-
-                child: Center(
-                  child: Text("InkWell"),
-                ),
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.blue,
-                  border: Border.all(color: Colors.yellowAccent, width: 2)
-                ),
-
-              ),
-
             ),
 
+            ElevatedButton(
+              onPressed: () => {print("pressed")},
+              onLongPress: () => {print("onLongPress")},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.yellow,
+                foregroundColor: Colors.redAccent,
+              ),
+              child: Text("New ElevateButton"),
+            ),
+            TextButton(
+              onPressed: () => {print("TextButton Pressed")},
+              child: Text("TextButton"),
+            ),
+
+            TextButton(onPressed: null, child: Text("Disable")),
+            TextButton.icon(
+              onPressed: () => {print("Text Icon Pressed")},
+              label: const Text("TextButton Icon"),
+              icon: const Icon(Icons.lock_clock),
+            ),
           ],
         ),
       ),
